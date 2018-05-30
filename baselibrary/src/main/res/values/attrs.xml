@@ -1,0 +1,105 @@
+<resources>
+    <declare-styleable name="SmoothCheckBox">
+        <attr name="duration" format="integer"/>
+        <attr name="stroke_width" format="dimension"/>
+        <attr name="color_tick" format="color"/>
+        <attr name="color_checked" format="color"/>
+        <attr name="color_unchecked" format="color"/>
+        <attr name="color_unchecked_stroke" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="MyRadioButton">
+        <attr name="drawableSize" format="dimension"/>
+        <attr name="drawableTop" format="reference"/>
+        <attr name="drawableLeft" format="reference"/>
+        <attr name="drawableRight" format="reference"/>
+        <attr name="drawableBottom" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="BannerView">
+        <attr name="indicatorFocus" format="color|reference"/>
+        <attr name="indicatorNormal" format="color|reference"/>
+        <attr name="indicatorGravity" format="color|reference">
+            <enum name="center" value="0"/>
+            <enum name="right" value="1"/>
+            <enum name="left" value="-1"/>
+        </attr>
+        <attr name="bottemColer" format="color"/>
+        <attr name="textColer" format="color"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="MultipleIndicatorView">
+        <attr name="tabVisibleNums" format="integer"/>
+    </declare-styleable>
+
+
+    <declare-styleable name="ColorTrackTextView">
+        <attr name="originColor" format="color"/>
+        <attr name="changeColor" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="labels_view">
+        <attr name="selectType" format="enum">
+            <enum name="NONE" value="1" />
+            <enum name="SINGLE" value="2" />
+            <enum name="MULTI" value="3" />
+        </attr>
+        <attr name="maxSelect" format="integer"/>
+        <attr name="labelTextColor" format="reference" />
+        <attr name="labelTextSize" format="dimension" />
+        <attr name="labelTextPaddingLeft" format="dimension" />
+        <attr name="labelTextPaddingTop" format="dimension" />
+        <attr name="labelTextPaddingRight" format="dimension" />
+        <attr name="labelTextPaddingBottom" format="dimension" />
+        <attr name="lineMargin" format="dimension" />
+        <attr name="wordMargin" format="dimension" />
+        <attr name="labelBackground" format="reference" />
+    </declare-styleable>
+    <!--app:labelBackground="@drawable/label_bg"     //标签的背景-->
+    <!--app:labelTextColor="@drawable/label_text_color" //标签的字体颜色 可以是一个颜色值-->
+    <!--app:labelTextSize="14sp"      //标签的字体大小-->
+    <!--app:labelTextPaddingBottom="5dp"   //标签的上下左右边距-->
+    <!--app:labelTextPaddingLeft="10dp"-->
+    <!--app:labelTextPaddingRight="10dp"-->
+    <!--app:labelTextPaddingTop="5dp"-->
+    <!--app:lineMargin="10dp"   //行与行的距离-->
+    <!--app:wordMargin="10dp"   //标签与标签的距离-->
+    <!--app:selectType="SINGLE"   //标签的选择类型 有单选、多选、不可选三种类型-->
+    <!--app:maxSelect="5" />  //标签的最大选择数量，只有多选的时候才有用，0为不限数量-->
+
+
+    <declare-styleable name="TextDrawable">
+        <attr name="leftDrawable" format="reference"/>
+        <attr name="leftDrawableWidth" format="dimension"/>
+        <attr name="leftDrawableHeight" format="dimension"/>
+        <attr name="rightDrawable" format="reference"/>
+        <attr name="rightDrawableWidth"   format="dimension"/>
+        <attr name="rightDrawableHeight" format="dimension"/>
+        <attr name="topDrawable" format="reference"/>
+        <attr name="topDrawableWidth" format="dimension"/>
+        <attr name="topDrawableHeight" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="NiceSpinner">
+        <attr name="arrowTint" format="color" />
+        <attr name="hideArrow" format="boolean" />
+        <attr name="arrowDrawable" format="reference|color"/>
+        <attr name="dropDownListPaddingBottom" format="dimension"/>
+        <attr name="backgroundSelector" format="integer"/>
+        <attr name="textTint" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SwipeItemLayout.Layout">
+        <attr name="layout_itemType">
+            <flag name="main" value="0x01"/>
+            <flag name="menu" value="0x02"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="FlowLayout">
+        <attr name="width_space" format="dimension"/>
+        <attr name="height_space" format="dimension"/>
+    </declare-styleable>
+</resources>

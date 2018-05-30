@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/navigationbar_container"
+    android:layout_width="match_parent"
+    android:layout_height="45dp"
+    android:background="#c5121ccc"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <ImageView
+        android:id="@+id/navigationbar_left_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@mipmap/back" />
+
+    <TextView
+        android:id="@+id/navigationbar_left_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/navigationbar_left_icon"
+        android:textColor="#FFFFFF"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/navigationbar_title"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#FFFFFF"
+        android:textSize="18dp" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/navigationbar_right_info_text"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="top"
+        android:background="@drawable/bg_circle_red"
+        android:gravity="center"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/navigationbar_right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        android:paddingRight="20dp"
+        android:text="关注"
+        android:textColor="#FFFFFF" />
+
+    <ImageView
+        android:id="@+id/navigationbar_right_icon"
+        android:layout_width="35dp"
+        android:layout_height="45dp"
+        android:layout_alignParentRight="true"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:visibility="gone" />
+</RelativeLayout>
