@@ -1,4 +1,4 @@
-package com.demon.com.materialdesign;
+package com.demon.com.materialdesign.widget;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -41,7 +41,6 @@ public class VerticalDragListView extends FrameLayout {
                 mViewDragHelper.settleCapturedViewAt(0,0);
             }
             invalidate();
-            setOnTouchListener();
         }
 
         @Override

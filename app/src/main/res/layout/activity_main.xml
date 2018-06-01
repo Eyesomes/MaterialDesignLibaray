@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.demon.com.materialdesign.FlowLayout
+    <com.demon.com.materialdesign.widget.FlowLayout
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -70,5 +70,5 @@
             android:layout_height="wrap_content"
             android:text="hefbjkbfjbwejrbwjeb"
             android:textSize="15dp" />
-    </com.demon.com.materialdesign.FlowLayout>
+    </com.demon.com.materialdesign.widget.FlowLayout>
 </LinearLayout>

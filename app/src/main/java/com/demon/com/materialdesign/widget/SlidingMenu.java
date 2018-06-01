@@ -1,4 +1,4 @@
-package com.demon.com.materialdesign;
+package com.demon.com.materialdesign.widget;
 
 import android.content.Context;
 import android.graphics.Color;
