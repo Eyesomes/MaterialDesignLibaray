@@ -18,7 +18,7 @@ import com.exam.cn.baselibrary.base.BaseActivity;
 import com.exam.cn.baselibrary.recyclerView.wrap.WrapRecyclerView;
 import com.exam.cn.baselibrary.util.StatusBarUtil;
 import com.exam.cn.framelibrary.R;
-import com.exam.cn.framelibrary.navigationBar.DefaultNavigationBar;
+import com.exam.cn.baselibrary.navigationbar.DefaultNavigationBar;
 import com.exam.cn.framelibrary.selectPic.adapter.ImageListAdapter;
 import com.exam.cn.framelibrary.selectPic.listener.SelectListener;
 

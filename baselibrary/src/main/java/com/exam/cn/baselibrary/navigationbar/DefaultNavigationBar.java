@@ -1,4 +1,4 @@
-package com.exam.cn.framelibrary.navigationBar;
+package com.exam.cn.baselibrary.navigationbar;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
-import com.exam.cn.baselibrary.navigationbar.AbsNavigationBar;
-import com.exam.cn.framelibrary.R;
+import com.exam.cn.baselibrary.R;
+
 
 /**
  * Created by admin on 2017/8/7.
@@ -254,5 +254,4 @@ public class DefaultNavigationBar extends AbsNavigationBar<DefaultNavigationBar.
             }
         }
     }
-
 }

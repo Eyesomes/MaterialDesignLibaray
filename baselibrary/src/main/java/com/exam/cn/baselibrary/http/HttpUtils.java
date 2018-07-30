@@ -26,19 +26,28 @@ public class HttpUtils {
 
     private Context mContext;
 
-    private static IHttpEngine mHttpEngine = null;
+    private IHttpEngine mHttpEngine = null;
+
+    private static IHttpEngine mInitHttpEngine = null;
 
     private HttpUtils(Context context) {
         this.mContext = context;
         mParams = new HashMap<>();
     }
 
-    public void init(IHttpEngine httpEngine) {
-        this.mHttpEngine = httpEngine;
-    }
-
     public static HttpUtils with(Context context) {
         return new HttpUtils(context);
+    }
+
+    public static void initHttpRequest(IHttpEngine httpEngine) {
+        mInitHttpEngine = httpEngine;
+    }
+
+
+    // url
+    public HttpUtils httpRequest(IHttpEngine httpEngine) {
+        this.mHttpEngine = httpEngine;
+        return this;
     }
 
     // url
@@ -86,9 +95,10 @@ public class HttpUtils {
     }
 
     public void execute(HttpCallback callback) {
-        if (callback == null) {
+        if (callback == null)
             callback = HttpCallback.DEFAULT_CALLBACK;
-        }
+        if (mHttpEngine == null)
+            mHttpEngine = mInitHttpEngine;
 
         callback.onPreExecute(mContext, mUrl, mParams);
 
@@ -104,8 +114,8 @@ public class HttpUtils {
     }
 
     // 执行
-    public void execute(String saveDir , OnDownloadListener listener) {
-        downLoad(mUrl,saveDir,listener);
+    public void execute(String saveDir, OnDownloadListener listener) {
+        downLoad(mUrl, saveDir, listener);
     }
 
     private void get(boolean isCache, String url, Map<String, Object> params, HttpCallback callback) {

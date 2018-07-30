@@ -175,7 +175,7 @@ public class BubbleDragView extends View {
 
         ValueAnimator animator = ObjectAnimator.ofFloat(1);
         animator.setDuration(350);
-        animator.setInterpolator(new OvershootInterpolator(3f));
+        animator.setInterpolator(new OvershootInterpolator());
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -205,7 +205,7 @@ public class BubbleDragView extends View {
      * @param listener
      */
     public static void attach(View view, OnDisappearListener listener) {
-        view.setOnTouchListener(new DragViewTouchListener(view, view.getContext()));
+        view.setOnTouchListener(new DragViewTouchListener(view, view.getContext(),listener));
     }
 
     public interface OnDisappearListener {

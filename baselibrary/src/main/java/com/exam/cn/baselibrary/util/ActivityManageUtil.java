@@ -10,22 +10,27 @@ import java.util.List;
  * Created by 杰 on 2017/12/20.
  */
 
-public class ActivityUtil {
+public class ActivityManageUtil {
     //运用list来保存们每一个activity是关键
-    private List<Activity> mList = new LinkedList<Activity>();
+    private List<Activity> mList;
     //为了实现每次使用该类时不创建新的对象而创建的静态对象
-    private static ActivityUtil instance;
+    private static volatile ActivityManageUtil mInstance;
 
     //构造方法
-    private ActivityUtil() {
+    private ActivityManageUtil() {
+        mList = new LinkedList<>();
     }
 
     //实例化一次
-    public synchronized static ActivityUtil getInstance() {
-        if (null == instance) {
-            instance = new ActivityUtil();
+    public static ActivityManageUtil getInstance() {
+        if (null == mInstance) {
+            synchronized (ActivityManageUtil.class) {
+                if (null == mInstance) {
+                    mInstance = new ActivityManageUtil();
+                }
+            }
         }
-        return instance;
+        return mInstance;
     }
 
     // add Activity
@@ -46,7 +51,7 @@ public class ActivityUtil {
 
     public void exit() {
         Iterator<Activity> iterator = mList.iterator();
-        while (iterator.hasNext()){
+        while (iterator.hasNext()) {
             Activity activity = iterator.next();
             activity.finish();
             iterator.remove();

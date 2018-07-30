@@ -14,6 +14,8 @@ import android.widget.ImageView;
 
 import com.demon.com.materialdesign.R;
 
+import static com.demon.com.materialdesign.widget.DragBubbleView.BubbleUtils.dip2px;
+
 /**
  * 监听触摸事件
  */
@@ -28,9 +30,12 @@ public class DragViewTouchListener implements View.OnTouchListener, BubbleDragVi
     private FrameLayout mBoomFrame;
     private ImageView mBoomImage;
 
-    public DragViewTouchListener(View view, Context context) {
+    private BubbleDragView.OnDisappearListener mDisappearListener;
+
+    public DragViewTouchListener(View view, Context context, BubbleDragView.OnDisappearListener listener) {
         this.mOriginView = view;
         this.mContext = context;
+        this.mDisappearListener = listener;
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
         mBubbleDragView = new BubbleDragView(mContext);
         mBubbleDragView.setOnDisapearListener(this);
@@ -41,7 +46,7 @@ public class DragViewTouchListener implements View.OnTouchListener, BubbleDragVi
         mBoomFrame = new FrameLayout(mContext);
         mBoomImage = new ImageView(mContext);
         mBoomFrame.addView(mBoomImage,
-                BubbleUtils.dip2px(30, mContext), BubbleUtils.dip2px(30, mContext));
+                dip2px(30, mContext), dip2px(30, mContext));
     }
 
     @Override
@@ -89,23 +94,28 @@ public class DragViewTouchListener implements View.OnTouchListener, BubbleDragVi
     }
 
     @Override
-    public void onDismiss(PointF pointF) {
-        //移除
-        mWindowManager.removeView(mBubbleDragView);
-        //爆炸
-        mWindowManager.addView(mBoomFrame, mLayoutParams);
-        mBoomImage.setBackgroundResource(R.drawable.anim_bubble_pop);
-        mBoomImage.setX(pointF.x);
-        mBoomImage.setY(pointF.y);
-        AnimationDrawable drawable = (AnimationDrawable) mBoomImage.getBackground();
-        drawable.start();
-        mBoomImage.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mWindowManager.removeView(mBoomFrame);
-                mOriginView.setVisibility(View.VISIBLE);
-            }
-        }, getDrawableAnimationTime(drawable));
+    public void onDismiss(final PointF pointF) {
+        try {
+            //移除
+            mWindowManager.removeView(mBubbleDragView);
+            //爆炸
+            mWindowManager.addView(mBoomFrame, mLayoutParams);
+            mBoomImage.setBackgroundResource(R.drawable.anim_bubble_pop);
+            mBoomImage.setX(pointF.x);
+            mBoomImage.setY(pointF.y);
+            AnimationDrawable drawable = (AnimationDrawable) mBoomImage.getBackground();
+            drawable.setOneShot(false);
+            drawable.start();
+            mBoomImage.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mWindowManager.removeView(mBoomFrame);
+                    if (mDisappearListener != null)
+                        mDisappearListener.onDismiss(pointF);
+                }
+            }, getDrawableAnimationTime(drawable));
+        } catch (Exception e) {
+        }
     }
 
     private long getDrawableAnimationTime(AnimationDrawable drawable) {
@@ -122,6 +132,8 @@ public class DragViewTouchListener implements View.OnTouchListener, BubbleDragVi
         try {
             mWindowManager.removeView(mBubbleDragView);
             mOriginView.setVisibility(View.VISIBLE);
+            if (mDisappearListener != null)
+                mDisappearListener.onRestore();
         } catch (Exception e) {
         }
     }
