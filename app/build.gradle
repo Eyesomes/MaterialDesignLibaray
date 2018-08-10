@@ -27,4 +27,8 @@ dependencies {
     implementation project(':framelibrary')
 
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+
+    compile 'org.greenrobot:eventbus:3.1.1'
+
+    implementation 'com.squareup.okhttp3:okhttp:3.11.0'
 }
