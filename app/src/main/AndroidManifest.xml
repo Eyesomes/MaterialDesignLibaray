@@ -25,6 +25,17 @@
             android:name=".test.JobGuardService"
             android:enabled="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.demon.com.materialdesign.fileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
     </application>
 
 </manifest>

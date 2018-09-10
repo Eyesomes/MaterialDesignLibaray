@@ -7,6 +7,8 @@ import com.exam.cn.baselibrary.ioc.Onclick;
 import com.exam.cn.baselibrary.ioc.ViewById;
 import com.exam.cn.baselibrary.util.ToastUtil;
 
+import java.util.concurrent.ExecutorService;
+
 public class DataScreenSlideMenu extends BaseActivity{
 
     @ViewById(R.id.slidemenu)
@@ -24,7 +26,6 @@ public class DataScreenSlideMenu extends BaseActivity{
 
     @Override
     protected void initTitle() {
-
     }
 
     @Override
