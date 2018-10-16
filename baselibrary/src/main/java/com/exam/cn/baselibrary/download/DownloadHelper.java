@@ -1,6 +1,9 @@
 package com.exam.cn.baselibrary.download;
 
 import android.content.Context;
+import android.os.Environment;
+
+import java.io.File;
 
 public class DownloadHelper {
 
@@ -21,7 +24,7 @@ public class DownloadHelper {
     public void init(Context context) {
         this.mContext = context.getApplicationContext();
 
-        FileManager.getManager().init(mContext);
+        FileManager.getManager().init(mContext,Environment.getExternalStorageDirectory());
         DaoManagerHelper.getManager().init(mContext);
     }
 

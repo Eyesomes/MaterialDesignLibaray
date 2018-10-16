@@ -21,8 +21,17 @@ class FileManager {
         return mManager;
     }
 
-    public void init(Context context){
+    public void init(Context context) {
         this.mContext = context.getApplicationContext();
+    }
+
+    public void init(Context context, File file) {
+        this.mContext = context.getApplicationContext();
+        rootDir(file);
+    }
+
+    public void rootDir(File file) {
+        this.mRootDir = file;
     }
 
     /**
@@ -33,10 +42,10 @@ class FileManager {
      */
     public File getFile(String url) {
         String fileName = Utils.md5Url(url);
-        if(mRootDir == null){
+        if (mRootDir == null) {
             mRootDir = mContext.getCacheDir();
         }
-        File file = new File(mRootDir,fileName);
+        File file = new File(mRootDir, fileName);
         return file;
     }
 }

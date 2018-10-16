@@ -62,13 +62,13 @@ class DownloadTask {
     public void init() {
         for (int i = 0; i < THREAD_SIZE; i++) {
             // 计算出每个线程要下载的内容
-            long threadSize = mContentLength / THREAD_SIZE;
+            long threadContentSize = mContentLength / THREAD_SIZE;
 
-            long start = i * threadSize;
-            long end = (i + threadSize) - 1;
+            long start = i * threadContentSize;
+            long end = (i + 1) *threadContentSize;
 
             if (i == THREAD_SIZE - 1) {
-                end = mContentLength - 1;
+                end = mContentLength;
             }
 
             List<DownloadEntity> downloadEntities = DaoManagerHelper.getManager().queryAll(mUrl);

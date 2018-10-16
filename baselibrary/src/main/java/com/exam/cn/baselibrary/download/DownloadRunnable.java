@@ -1,5 +1,7 @@
 package com.exam.cn.baselibrary.download;
 
+import android.util.Log;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -64,7 +66,22 @@ class DownloadRunnable implements Runnable {
             mDownloadEntity.setProgress(mProgress);
             DaoManagerHelper.getManager().addEntity(mDownloadEntity);
 
+            Log.e("download", DownloadRunnable.this.toString());
+
             callback.onSucceed(file);
         }
+    }
+
+
+    @Override
+    public String toString() {
+        return "DownloadRunnable{" +
+                ", threadId=" + threadId +
+                ", start=" + start +
+                ", end=" + end +
+                ", mProgress=" + mProgress +
+                ", mStatus=" + mStatus +
+                ", url='" + url + '\'' +
+                '}';
     }
 }
