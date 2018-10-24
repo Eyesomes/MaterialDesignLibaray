@@ -3,11 +3,9 @@ package com.demon.com.materialdesign.Activity;
 import com.demon.com.materialdesign.R;
 import com.demon.com.materialdesign.adapter.SlideMenuAdapter;
 import com.exam.cn.baselibrary.base.BaseActivity;
-import com.exam.cn.baselibrary.ioc.Onclick;
-import com.exam.cn.baselibrary.ioc.ViewById;
+import com.exam.cn.baselibrary.bindview.Onclick;
+import com.exam.cn.baselibrary.bindview.ViewById;
 import com.exam.cn.baselibrary.util.ToastUtil;
-
-import java.util.concurrent.ExecutorService;
 
 public class DataScreenSlideMenu extends BaseActivity{
 

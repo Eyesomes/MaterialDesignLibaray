@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.exam.cn.baselibrary.ioc.ViewUtils;
+import com.exam.cn.baselibrary.bindview.ViewUtils;
 
 public abstract class BaseFragment extends Fragment {
 
@@ -20,10 +20,10 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.context = getActivity();
-        rootView = View.inflate(context,getLayoutId(),null);
+        rootView = View.inflate(context, getLayoutId(), null);
 
         // 加入注解
-        ViewUtils.inject(rootView,this);
+        ViewUtils.inject(rootView, this);
 
         return rootView;
     }
@@ -48,6 +48,4 @@ public abstract class BaseFragment extends Fragment {
         Intent intent = new Intent(context, clazz);
         startActivity(intent);
     }
-
-
 }

@@ -1,4 +1,4 @@
 package com.exam.cn.baselibrary.base.mvp;
 
-public interface BaseView {
+public interface IView {
 }

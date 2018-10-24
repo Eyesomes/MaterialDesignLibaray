@@ -1,38 +1,50 @@
 package com.exam.cn.baselibrary.base.mvp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompatActivity implements BaseView {
+import com.exam.cn.baselibrary.base.mvp.proxy.ActivityMvpProxy;
+import com.exam.cn.baselibrary.base.mvp.proxy.ActivityMvpProxyImpl;
 
-    private P mPresentor;
+public abstract class BaseMvpActivity extends AppCompatActivity implements IView {
+
+    private ActivityMvpProxy mMvpProxy;
+
+    protected Activity context;
+
+    protected ViewHolder viewHolder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layoutId());
-
-        mPresentor = creatPresenter();
-        mPresentor.attach(this);
+        context = this;
+        viewHolder = new ViewHolder(this);
+        if (mMvpProxy == null)
+            mMvpProxy = creatPresenterProxy();
+        injectPresenter();
 
         initTitle();
         initView();
         initDate();
     }
 
+    protected ActivityMvpProxy creatPresenterProxy() {
+        return new ActivityMvpProxyImpl(this);
+    }
+
+    private void injectPresenter() {
+        mMvpProxy.bindAndCreatPresenter();
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPresentor.detach();
+        mMvpProxy.unBindPresenter();
     }
-
-    protected P getPresentor() {
-        return mPresentor;
-    }
-
-    protected abstract P creatPresenter();
 
     protected abstract int layoutId();
 
@@ -41,7 +53,6 @@ public abstract class BaseMvpActivity<P extends BasePresenter> extends AppCompat
     protected abstract void initView();
 
     protected abstract void initDate();
-
 
     /**
      * 启动Activity

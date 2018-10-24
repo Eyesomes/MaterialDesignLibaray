@@ -3,10 +3,8 @@ package com.demon.com.materialdesign.Activity;
 import com.demon.com.materialdesign.R;
 import com.demon.com.materialdesign.widget.loveflower.LoveFlowerLayout;
 import com.exam.cn.baselibrary.base.BaseActivity;
-import com.exam.cn.baselibrary.ioc.Onclick;
-import com.exam.cn.baselibrary.ioc.ViewById;
-
-import java.util.concurrent.ThreadPoolExecutor;
+import com.exam.cn.baselibrary.bindview.Onclick;
+import com.exam.cn.baselibrary.bindview.ViewById;
 
 public class LoveFlowerActivity extends BaseActivity{
 

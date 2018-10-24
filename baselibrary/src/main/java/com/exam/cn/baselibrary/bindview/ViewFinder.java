@@ -1,4 +1,4 @@
-package com.exam.cn.baselibrary.ioc;
+package com.exam.cn.baselibrary.bindview;
 
 import android.app.Activity;
 import android.view.View;

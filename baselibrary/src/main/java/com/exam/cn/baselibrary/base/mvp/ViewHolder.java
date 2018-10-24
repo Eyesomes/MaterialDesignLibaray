@@ -1,4 +1,4 @@
-package com.exam.cn.baselibrary.base;
+package com.exam.cn.baselibrary.base.mvp;
 
 import android.app.Activity;
 import android.util.SparseArray;

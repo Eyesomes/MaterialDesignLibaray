@@ -6,7 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.exam.cn.baselibrary.ioc.ViewUtils;
+import com.exam.cn.baselibrary.bindview.ViewUtils;
 import com.exam.cn.baselibrary.util.ActivityManageUtil;
 
 /**

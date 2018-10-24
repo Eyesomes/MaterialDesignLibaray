@@ -3,10 +3,11 @@ package com.demon.com.materialdesign.Activity;
 import android.graphics.PointF;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.demon.com.materialdesign.R;
 import com.demon.com.materialdesign.widget.DragBubbleView.BubbleDragView;
 import com.exam.cn.baselibrary.base.BaseActivity;
-import com.exam.cn.baselibrary.ioc.ViewById;
+import com.exam.cn.baselibrary.bindview.ViewById;
 
 public class BubbleDragViewActivity extends BaseActivity {
 
@@ -15,7 +16,7 @@ public class BubbleDragViewActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        Glide.with().load("1").into()
     }
 
     @Override
